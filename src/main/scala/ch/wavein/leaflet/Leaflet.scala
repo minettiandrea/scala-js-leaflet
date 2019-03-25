@@ -254,16 +254,16 @@ class Draggable protected () extends Evented {
   def finishDrag(): Unit = js.native
 }
 
-@js.native
+@ScalaJSDefined
 trait LayerOptions extends js.Object {
-  var pane: String = js.native
-  var attribution: String = js.native
+  val pane: js.UndefOr[String] = js.undefined
+  val attribution: js.UndefOr[String] = js.undefined
 }
 
-@js.native
+@ScalaJSDefined
 trait InteractiveLayerOptions extends LayerOptions {
-  var interactive: Boolean = js.native
-  var bubblingMouseEvents: Boolean = js.native
+  val interactive: js.UndefOr[Boolean] = js.undefined
+  val bubblingMouseEvents: js.UndefOr[Boolean] = js.undefined
 }
 
 @js.native
@@ -375,7 +375,6 @@ class WMS protected () extends TileLayer {
   def setParams(params: WMSParams, noRedraw: Boolean = ???): this.type = js.native
   var wmsParams: WMSParams = js.native
 }
-
 
 
 @ScalaJSDefined
@@ -1170,21 +1169,21 @@ class DivIcon protected () extends Icon[DivIconOptions] {
   def this(options: DivIconOptions = ???) = this()
 }
 
-@js.native
+@ScalaJSDefined
 trait MarkerOptions extends InteractiveLayerOptions {
-  var icon: Icon[_] | DivIcon = js.native
-  var clickable: Boolean = js.native
-  var draggable: Boolean = js.native
-  var keyboard: Boolean = js.native
-  var title: String = js.native
-  var alt: String = js.native
-  var zIndexOffset: Double = js.native
-  var opacity: Double = js.native
-  var riseOnHover: Boolean = js.native
-  var riseOffset: Double = js.native
-  var autoPan: Boolean = js.native
-  var autoPanSpeed: Double = js.native
-  var autoPanPadding: Leaflet.PointExpression = js.native
+  val icon: js.UndefOr[Icon[_] | DivIcon] = js.undefined
+  val clickable: js.UndefOr[Boolean] = js.undefined
+  val draggable: js.UndefOr[Boolean] = js.undefined
+  val keyboard: js.UndefOr[Boolean] = js.undefined
+  val title: js.UndefOr[String] = js.undefined
+  val alt: js.UndefOr[String] = js.undefined
+  val zIndexOffset: js.UndefOr[Double] = js.undefined
+  val opacity: js.UndefOr[Double] = js.undefined
+  val riseOnHover: js.UndefOr[Boolean] = js.undefined
+  val riseOffset: js.UndefOr[Double] = js.undefined
+  val autoPan: js.UndefOr[Boolean] = js.undefined
+  val autoPanSpeed: js.UndefOr[Double] = js.undefined
+  val autoPanPadding: js.UndefOr[Leaflet.PointExpression] = js.undefined
 }
 
 @js.native
