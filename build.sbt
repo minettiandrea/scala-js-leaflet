@@ -1,7 +1,7 @@
 import Dependencies._
 
 ThisBuild / scalaVersion     := "2.12.8"
-ThisBuild / version          := "0.1.0-SNAPSHOT"
+ThisBuild / version          := "0.1.0"
 ThisBuild / organization     := "ch.wavein"
 
 
@@ -10,7 +10,11 @@ lazy val root = (project in file("."))
   .settings(
     name := "scala-js-leaflet",
     libraryDependencies += scalaTest % Test,
-    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.2"
+    libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.2",
+    bintrayRepository := "maven",
+    bintrayOrganization := Some("waveinch"),
+    publishMavenStyle := false,
+    licenses += ("Apache-2.0", url("http://www.opensource.org/licenses/apache2.0.php")),
   ).enablePlugins(ScalaJSPlugin)
 
 // Uncomment the following for publishing to Sonatype.
