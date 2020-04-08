@@ -602,13 +602,13 @@ class FeatureGroup[P] extends LayerGroup[P] {
   def getBounds(): LatLngBounds = js.native
 }
 
-@js.native
+@ScalaJSDefined
 trait GeoJSONOptions[P] extends LayerOptions {
-  def pointToLayer(geoJsonPoint: geojson.Feature[geojson.GeoJson.Geometry, P], latlng: LatLng): Layer = js.native
-  var style: PathOptions | Leaflet.StyleFunction[P] = js.native
-  def onEachFeature(feature: geojson.Feature[geojson.GeoJson.GeometryObject, P], layer: Layer): Unit = js.native
-  def filter(geoJsonFeature: geojson.Feature[geojson.GeoJson.GeometryObject, P]): Boolean = js.native
-  def coordsToLatLng(coords: js.Tuple2[Double, Double] | js.Tuple3[Double, Double, Double]): LatLng = js.native
+  val pointToLayer: js.UndefOr[js.Function2[geojson.Feature[geojson.GeoJson.Geometry, P],LatLng,Layer]] = js.undefined
+  var style: js.UndefOr[PathOptions | Leaflet.StyleFunction[P]] = js.undefined
+  val onEachFeature: js.UndefOr[js.Function2[geojson.Feature[geojson.GeoJson.Geometry, P],Layer,Unit]] = js.undefined
+  val filter: js.UndefOr[js.Function1[geojson.Feature[geojson.GeoJson.GeometryObject, P],Boolean]] = js.undefined
+  val coordsToLatLng:js.UndefOr[js.Function1[js.Tuple2[Double, Double] | js.Tuple3[Double, Double, Double],LatLng]] = js.undefined
 }
 
 @js.native
@@ -632,46 +632,46 @@ object GeoJSON extends js.Object {
   def asFeature[P](_geojson: geojson.Feature[geojson.GeoJson.GeometryObject, P] | geojson.GeoJson.GeometryObject): geojson.Feature[geojson.GeoJson.GeometryObject, P] = js.native
 }
 
-@js.native
+@ScalaJSDefined
 trait MapOptions extends js.Object {
-  var preferCanvas: Boolean = js.native
-  var attributionControl: Boolean = js.native
-  var zoomControl: Boolean = js.native
-  var closePopupOnClick: Boolean = js.native
-  var zoomSnap: Double = js.native
-  var zoomDelta: Double = js.native
-  var trackResize: Boolean = js.native
-  var boxZoom: Boolean = js.native
-  var doubleClickZoom: Zoom = js.native
-  var dragging: Boolean = js.native
-  var crs: CRS = js.native
-  var center: Leaflet.LatLngExpression = js.native
-  var zoom: Double = js.native
-  var minZoom: Double = js.native
-  var maxZoom: Double = js.native
-  var layers: js.Array[Layer] = js.native
-  var maxBounds: Leaflet.LatLngBoundsExpression = js.native
-  var renderer: Renderer = js.native
-  var fadeAnimation: Boolean = js.native
-  var markerZoomAnimation: Boolean = js.native
-  var transform3DLimit: Double = js.native
-  var zoomAnimation: Boolean = js.native
-  var zoomAnimationThreshold: Double = js.native
-  var inertia: Boolean = js.native
-  var inertiaDeceleration: Double = js.native
-  var inertiaMaxSpeed: Double = js.native
-  var easeLinearity: Double = js.native
-  var worldCopyJump: Boolean = js.native
-  var maxBoundsViscosity: Double = js.native
-  var keyboard: Boolean = js.native
-  var keyboardPanDelta: Double = js.native
-  var scrollWheelZoom: Zoom = js.native
-  var wheelDebounceTime: Double = js.native
-  var wheelPxPerZoomLevel: Double = js.native
-  var tap: Boolean = js.native
-  var tapTolerance: Double = js.native
-  var touchZoom: Zoom = js.native
-  var bounceAtZoomLimits: Boolean = js.native
+  var preferCanvas: js.UndefOr[Boolean] = js.undefined
+  var attributionControl: js.UndefOr[Boolean] = js.undefined
+  var zoomControl: js.UndefOr[Boolean] = js.undefined
+  var closePopupOnClick: js.UndefOr[Boolean] = js.undefined
+  var zoomSnap: js.UndefOr[Double] = js.undefined
+  var zoomDelta: js.UndefOr[Double] = js.undefined
+  var trackResize: js.UndefOr[Boolean] = js.undefined
+  var boxZoom: js.UndefOr[Boolean] = js.undefined
+  var doubleClickZoom: js.UndefOr[Zoom] = js.undefined
+  var dragging: js.UndefOr[Boolean] = js.undefined
+  var crs: js.UndefOr[CRS] = js.undefined
+  var center: js.UndefOr[Leaflet.LatLngExpression] = js.undefined
+  var zoom: js.UndefOr[Double] = js.undefined
+  var minZoom: js.UndefOr[Double] = js.undefined
+  var maxZoom: js.UndefOr[Double] = js.undefined
+  var layers: js.UndefOr[js.Array[Layer]] = js.undefined
+  var maxBounds: js.UndefOr[Leaflet.LatLngBoundsExpression] = js.undefined
+  var renderer: js.UndefOr[Renderer] = js.undefined
+  var fadeAnimation: js.UndefOr[Boolean] = js.undefined
+  var markerZoomAnimation: js.UndefOr[Boolean] = js.undefined
+  var transform3DLimit: js.UndefOr[Double] = js.undefined
+  var zoomAnimation: js.UndefOr[Boolean] = js.undefined
+  var zoomAnimationThreshold: js.UndefOr[Double] = js.undefined
+  var inertia: js.UndefOr[Boolean] = js.undefined
+  var inertiaDeceleration: js.UndefOr[Double] = js.undefined
+  var inertiaMaxSpeed: js.UndefOr[Double] = js.undefined
+  var easeLinearity: js.UndefOr[Double] = js.undefined
+  var worldCopyJump: js.UndefOr[Boolean] = js.undefined
+  var maxBoundsViscosity: js.UndefOr[Double] = js.undefined
+  var keyboard: js.UndefOr[Boolean] = js.undefined
+  var keyboardPanDelta: js.UndefOr[Double] = js.undefined
+  var scrollWheelZoom: js.UndefOr[Zoom] = js.undefined
+  var wheelDebounceTime: js.UndefOr[Double] = js.undefined
+  var wheelPxPerZoomLevel: js.UndefOr[Double] = js.undefined
+  var tap: js.UndefOr[Boolean] = js.undefined
+  var tapTolerance: js.UndefOr[Double] = js.undefined
+  var touchZoom: js.UndefOr[Zoom] = js.undefined
+  var bounceAtZoomLimits: js.UndefOr[Boolean] = js.undefined
 }
 
 @js.native
@@ -1268,8 +1268,7 @@ object Util extends js.Object {
 
 
 @js.native
-@JSGlobal("L")
-object Leaflet extends js.Object {
+trait Leaflet extends js.Object {
   type LatLngTuple = js.Tuple2[Double, Double]
   type LatLngExpression = LatLng | LatLngLiteral | LatLngTuple
   def latLng(latitude: Double, longitude: Double, altitude: Double = ???): LatLng = js.native
@@ -1320,4 +1319,6 @@ object Leaflet extends js.Object {
   def marker(latlng: LatLngExpression, options: MarkerOptions = ???): Marker[_] = js.native
 }
 
-
+@js.native
+@JSGlobal("L")
+object Leaflet extends Leaflet
