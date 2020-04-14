@@ -13,7 +13,7 @@ lazy val root = (project in file("."))
     libraryDependencies += "org.scala-js" %%% "scalajs-dom" % "0.9.2",
     bintrayRepository := "maven",
     bintrayOrganization := Some("waveinch"),
-    publishMavenStyle := false,
+    publishMavenStyle := true,
     licenses += ("Apache-2.0", url("http://www.opensource.org/licenses/apache2.0.php")),
   ).enablePlugins(ScalaJSPlugin)
 
